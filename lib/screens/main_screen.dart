@@ -81,7 +81,7 @@ class _MainScreenState extends State<MainScreen> {
 
   bool requestPositionInfo = true;
 
-  //use Geolocator to find current Position,
+  //use GeoLocator to find current Position,
   // and give it to AssistantMethods.searchAddressForGeographicCoOrdinates() to find HumanReadableAddress,
   // and initializeGeoFireListener() for driver current Location
   locateUserPosition() async {
@@ -124,7 +124,7 @@ class _MainScreenState extends State<MainScreen> {
               activeNearByAvailableDrivers.locationLatitude = map["latitude"];
               activeNearByAvailableDrivers.locationLongitude = map["longitude"];
               activeNearByAvailableDrivers.driverId = map["key"];
-              Geofire.initialize("activeDrivers");
+              GeoFireAssistant.activeNearByAvailableDriverList.add(activeNearByAvailableDrivers);
               if(activeNearbyDriverKeysLoaded == true){
                 displayActiveDriversOnUserMap();
               }

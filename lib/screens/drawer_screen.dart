@@ -72,7 +72,7 @@ class DrawerScreen extends StatelessWidget {
                   Text("Help", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
 
                   SizedBox(height: 15,),
-                  Text("Free Tips", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
+                  Text("Free Trips", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
                 ],
               ),
 

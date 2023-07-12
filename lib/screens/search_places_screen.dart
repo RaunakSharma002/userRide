@@ -15,7 +15,7 @@ class _SearchPlacesScreenState extends State<SearchPlacesScreen> {
   findPlaceAutoCompleteSearch(String inputText) async{
     if(inputText.length > 1){
       //Write here your country name
-      String urlAutoCompleteSearch = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$inputText&key=$mapKey&components=country:US";
+      String urlAutoCompleteSearch = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$inputText&key=$mapKey&components=country:IN";
 
       var responseAutoCompleteSearch = await RequestAssistant.recieveRequest(urlAutoCompleteSearch);
       if(responseAutoCompleteSearch == "failedResponse"){
