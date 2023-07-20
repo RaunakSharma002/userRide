@@ -87,7 +87,7 @@ class AssistantMethods {
       };
 
       Map bodyNotification = {
-        "body": "DestinationAddress: \n$destinationAddress.",
+        "body": "DestinationAddress: \n$destinationAddress.",     //notification shown in driver app
         "title": "New Trip Request",
       };
 

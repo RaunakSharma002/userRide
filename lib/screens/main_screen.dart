@@ -374,7 +374,6 @@ class _MainScreenState extends State<MainScreen> {
   //put GeoFireAssistant.activeNearByAvailableDriverList or (Geofire.onKeyMoved of "activeDriver" in initializeGeoFire) into var onlineNearByAvailableDriversList
   //call searchNearestOnlineDrivers(selectedVehicleType) which will search Driver based on car type and send notification to that driver
   saveRideRequestInformation(String selectedVehicleType){
-    print("DEBUG 2");
 
     //1. save the ride request information
     //make "All Ride Request" database and set userInformationMap
@@ -459,7 +458,6 @@ class _MainScreenState extends State<MainScreen> {
 
             var response = await showDialog(
                 context: context,
-
                 builder: (BuildContext context) => PayFareAmountDialog(
                   fareAmount: fareAmount
                 )
@@ -522,7 +520,7 @@ class _MainScreenState extends State<MainScreen> {
       print("EventSnapshot: ${eventRideRequestSnapshot.snapshot.value}");
       if(eventRideRequestSnapshot.snapshot.value != null){
         if(eventRideRequestSnapshot.snapshot.value != "waiting"){
-          showUIForAssignedDriverInfo();
+          showUIForAssignedDriverInfo();    //**have to check it working
         }
       }
     });
@@ -891,13 +889,17 @@ class _MainScreenState extends State<MainScreen> {
                           ),
 
                           SizedBox(width: 15,),
-                          Text(
-                            Provider.of<AppInfo>(context).userDropOffLocation != null
-                                ?Provider.of<AppInfo>(context).userDropOffLocation!.locationName!
-                                : "Where to?",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18
+                          Flexible(
+                            child: Text(
+                              Provider.of<AppInfo>(context).userDropOffLocation != null
+                                  ?Provider.of<AppInfo>(context).userDropOffLocation!.locationName!
+                                  : "Where to?",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18
+                              ),
+                              softWrap: false,
+                              overflow: TextOverflow.ellipsis,
                             ),
                           )
                         ],
@@ -1036,11 +1038,6 @@ class _MainScreenState extends State<MainScreen> {
                           onTap: (){
                             if(selectedVehicleType != ""){
                               saveRideRequestInformation(selectedVehicleType);
-
-                              print('DEBUG IT1');
-
-                              //can set state for searching for driver Container height
-                              //not working properly if driver is offline
                             }
                             else{
                               Fluttertoast.showToast(msg: "Please select a vehicle from \n suggested rides");
