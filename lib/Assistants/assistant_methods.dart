@@ -57,6 +57,8 @@ class AssistantMethods {
       //   return null;
       // }
 
+      print("direction info, ${responseDirectionApi}");
+
       print("multiple routes ${responseDirectionApi}");
       DirectionDetailsInfo directionDetailsInfo = DirectionDetailsInfo();
       directionDetailsInfo.e_points = responseDirectionApi["routes"][0]["overview_polyline"]["points"];
