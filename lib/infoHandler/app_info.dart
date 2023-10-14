@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:user_ride/models/directions.dart';
+import 'package:user_ride/models/trips_history_model.dart';
 
 class AppInfo extends ChangeNotifier{
   Directions? userPickUpLocation, userDropOffLocation;
   int countTotalTrips = 0;
-  // List<String> historyTripsKeyList = [];
-  // List<TripHistoryModel> allTripsHistoryInformationList = [];
+  List<String> historyTripsKeyList = [];
+  List<TripsHistoryModel> allTripsHistoryInformationList = [];
 
  void updatePickUpLocationAddress(Directions userPickUpAddress){
    userPickUpLocation = userPickUpAddress;
@@ -14,6 +15,21 @@ class AppInfo extends ChangeNotifier{
   void updateDropOffLocationAddress(Directions dropOffAddress){
     userDropOffLocation = dropOffAddress;
     notifyListeners();
+  }
+
+  updateOverAllTripsCounter(int overAllTripsCounter){
+   countTotalTrips = overAllTripsCounter;
+   notifyListeners();
+  }
+
+  updateOverAllTripsKeys(List<String> tripKeysList){
+   historyTripsKeyList = tripKeysList;
+   notifyListeners();
+  }
+
+  updateOverAllTripsHistoryInformation(TripsHistoryModel eachTripHistory){
+   allTripsHistoryInformationList.add(eachTripHistory);
+   notifyListeners();
   }
 
 }

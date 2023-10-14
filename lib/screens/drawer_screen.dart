@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:user_ride/global/global.dart';
 import 'package:user_ride/screens/profile_screen.dart';
+import 'package:user_ride/screens/trips_history_screen.dart';
 import 'package:user_ride/splashScreen/splash_screen.dart';
 
 class DrawerScreen extends StatelessWidget {
@@ -57,7 +58,12 @@ class DrawerScreen extends StatelessWidget {
                   ),
 
                   SizedBox(height: 30,),
-                  Text("Your Trips", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (c)=> TripsHistoryScreen()));
+                    },
+                      child: Text("Your Trips", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),)
+                  ),
 
                   SizedBox(height: 15,),
                   Text("Payements", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),

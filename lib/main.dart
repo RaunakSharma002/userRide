@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:user_ride/infoHandler/app_info.dart';
 import 'package:user_ride/screens/login_screen.dart';
 import 'package:user_ride/screens/main_screen.dart';
+import 'package:user_ride/screens/rate_driver_screen.dart';
 import 'package:user_ride/screens/register_screen.dart';
 import 'package:user_ride/screens/search_places_screen.dart';
 import 'package:user_ride/splashScreen/splash_screen.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         theme: MyThemes.lightTheme,
         darkTheme: MyThemes.darkTheme,
         debugShowCheckedModeBanner: false,
-        home: SplashScreen(),
+        home: MainScreen(),
       ),
     );
   }
